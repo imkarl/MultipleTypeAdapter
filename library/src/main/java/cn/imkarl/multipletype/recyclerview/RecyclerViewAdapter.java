@@ -1,5 +1,6 @@
 package cn.imkarl.multipletype.recyclerview;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -9,14 +10,14 @@ import cn.imkarl.multipletype.AdapterData;
 import cn.imkarl.multipletype.AdapterRegister;
 import cn.imkarl.multipletype.MultipleTypeAdapter;
 
-public final class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> implements MultipleTypeAdapter {
+public final class RecyclerViewAdapter extends RecyclerView.Adapter<BasicViewHolder> implements MultipleTypeAdapter {
 
     @NonNull
     private final AdapterData data;
     @NonNull
     private final AdapterRegister register;
 
-    public RecyclerAdapter(@NonNull AdapterData data, @NonNull AdapterRegister register) {
+    public RecyclerViewAdapter(@NonNull AdapterData data, @NonNull AdapterRegister register) {
         this.data = data;
         this.register = register;
     }
@@ -35,9 +36,9 @@ public final class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder>
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BasicViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull BasicViewHolder holder, @SuppressLint("RecyclerView") int position) {
         final Object item = getItemData(position);
-        register.onBindViewHolder(holder.helper, position, item);
+        register.onBindView(holder.helper, position, item);
     }
 
 

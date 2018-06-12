@@ -24,6 +24,8 @@ public class BasicViewHelper {
     @NonNull
     private final SparseArray<View> views;
 
+    public int position = -1;
+
     public BasicViewHelper(@NonNull View itemView) {
         this.itemView = itemView;
         this.views = new SparseArray<>();

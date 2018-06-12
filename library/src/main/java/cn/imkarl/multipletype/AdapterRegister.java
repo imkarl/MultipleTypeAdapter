@@ -80,8 +80,9 @@ public final class AdapterRegister {
         return itemView;
     }
 
-    public void onBindViewHolder(@NonNull BasicViewHelper holder, int position, @NonNull Object item) {
-        findAdapterItem(item).convert(holder, item, position);
+    public void onBindView(@NonNull BasicViewHelper helper, int position, @NonNull Object item) {
+        helper.position = position;
+        findAdapterItem(item).convert(helper, item, position);
     }
 
 
