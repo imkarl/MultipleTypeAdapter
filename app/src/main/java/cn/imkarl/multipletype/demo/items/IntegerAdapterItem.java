@@ -1,9 +1,10 @@
-package cn.imkarl.multipletype.demo;
+package cn.imkarl.multipletype.demo.items;
 
 import android.support.annotation.NonNull;
 
 import cn.imkarl.multipletype.AdapterItem;
 import cn.imkarl.multipletype.BasicViewHelper;
+import cn.imkarl.multipletype.demo.R;
 
 public class IntegerAdapterItem extends AdapterItem<Integer> {
     @Override
