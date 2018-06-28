@@ -19,12 +19,20 @@
         />
 
     <Button
-        android:id="@+id/btn_listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="ListView"
         android:onClick="jumpListView"
+        />
+
+    <Button
+        android:id="@+id/btn_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="ViewPager"
+        android:onClick="jumpViewPager"
         />
 
 </LinearLayout>

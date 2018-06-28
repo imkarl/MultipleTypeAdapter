@@ -55,6 +55,15 @@ public final class AdapterRegister {
         return this;
     }
 
+    public <T> AdapterRegister unregister(@NonNull AdapterItem<T> adapterItem) {
+        typeItems.remove(adapterItem.getType());
+        return this;
+    }
+    public <T> AdapterRegister unregister(@NonNull AdapterItemGroup<T> adapterItemGroup) {
+        typeItems.remove(adapterItemGroup.getType());
+        return this;
+    }
+
     public int getItemViewType(@NonNull Object item) {
         final AdapterItem adapterItem = findAdapterItem(item);
         //noinspection unchecked

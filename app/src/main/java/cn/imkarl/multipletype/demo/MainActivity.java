@@ -20,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     public void jumpListView(View view) {
         jump(ListViewActivity.class);
     }
+    public void jumpViewPager(View view) {
+        jump(ViewPagerActivity.class);
+    }
 
     private void jump(Class<? extends Activity> activityClass) {
         startActivity(new Intent(this, activityClass));

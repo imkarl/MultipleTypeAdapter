@@ -1,12 +1,14 @@
 package cn.imkarl.multipletype;
 
 import android.support.annotation.NonNull;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ListView;
 
 import cn.imkarl.multipletype.listview.ListViewAdapter;
 import cn.imkarl.multipletype.recyclerview.RecyclerViewAdapter;
 import cn.imkarl.multipletype.utils.MultipleTypeLogs;
+import cn.imkarl.multipletype.viewpager.ViewPagerAdapter;
 
 /**
  * @author imkarl
@@ -34,6 +36,16 @@ public final class MultipleTypeAdapterBuilder {
 
     public <T> MultipleTypeAdapterBuilder register(@NonNull AdapterItemGroup<T> adapterItemGroup) {
         register.register(adapterItemGroup);
+        return this;
+    }
+
+    public <T> MultipleTypeAdapterBuilder unregister(@NonNull AdapterItem<T> adapterItem) {
+        register.unregister(adapterItem);
+        return this;
+    }
+
+    public <T> MultipleTypeAdapterBuilder unregister(@NonNull AdapterItemGroup<T> adapterItemGroup) {
+        register.unregister(adapterItemGroup);
         return this;
     }
 
@@ -66,6 +78,19 @@ public final class MultipleTypeAdapterBuilder {
             }
         });
         listView.setAdapter(adapter);
+        return adapter;
+    }
+
+    @NonNull
+    public ViewPagerAdapter bind(@NonNull ViewPager viewPager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(data, register, 10);
+        viewPager.setAdapter(adapter);
+        return adapter;
+    }
+    @NonNull
+    public ViewPagerAdapter bind(@NonNull ViewPager viewPager, int maxRecycledView) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(data, register, maxRecycledView);
+        viewPager.setAdapter(adapter);
         return adapter;
     }
 
